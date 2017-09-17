@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { PainelComponent } from '../painel/painel.component'
 @Component({
   selector: 'app-progresso',
   templateUrl: './progresso.component.html',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgressoComponent implements OnInit {
 
+  //public progresso: number = 25;
+  
   constructor() { }
 
   ngOnInit() {

@@ -1,0 +1,16 @@
+set 17, 2017 3:40:59 PM com.genuitec.pulse.client.deliverypackage.runtime.internal.Activator initializeLoggers
+INFORMA합ES: Package starting up at Sun Sep 17 15:40:59 BRT 2017
+set 17, 2017 3:41:21 PM com.genuitec.pulse.client.deliverypackage.runtime.UpdatesService checkForUpdates
+INFORMA합ES: Newer promotion of package is available; update check finished in 21270ms
+set 17, 2017 3:45:15 PM com.genuitec.pulse.client.common.fileutil.LibraryLoader loadLibrary
+INFORMA합ES: Preparing to load jregistrykey from bundle com.genuitec.pulse.client.delivery.platform
+set 17, 2017 3:45:15 PM com.genuitec.pulse.client.common.fileutil.LibraryLoader loadLibrary
+INFORMA합ES: Located concrete library jregistrykey_3213 from bundle com.genuitec.pulse.client.delivery.platform for pattern jregistrykey*.dll
+set 17, 2017 3:45:15 PM com.genuitec.pulse.client.common.fileutil.LibraryLoader loadLibrary
+INFORMA합ES: Loaded required library jregistrykey_3213 from bundle com.genuitec.pulse.client.delivery.platform
+set 17, 2017 3:45:15 PM com.genuitec.pulse.client.common.fileutil.LibraryLoader loadLibrary
+INFORMA합ES: Preparing to load jshortcut from bundle com.genuitec.pulse.client.delivery.platform
+set 17, 2017 3:45:15 PM com.genuitec.pulse.client.common.fileutil.LibraryLoader loadLibrary
+INFORMA합ES: Located concrete library jshortcut_3213 from bundle com.genuitec.pulse.client.delivery.platform for pattern jshortcut*.dll
+set 17, 2017 3:45:15 PM com.genuitec.pulse.client.common.fileutil.LibraryLoader loadLibrary
+INFORMA합ES: Loaded required library jshortcut_3213 from bundle com.genuitec.pulse.client.delivery.platform
