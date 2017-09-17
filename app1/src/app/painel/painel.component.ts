@@ -10,14 +10,21 @@ import { FRASES } from './frases-mock'
 export class PainelComponent implements OnInit {
 
   public frases: Frase[] = FRASES
-  public instrucao: string = 'Traduza a Frase:'
-  public resposta: String;
+  public instrucao: string = 'Traduza a Frase:';
+  public resposta: String = '';
   public rodada: number = 0;
   public rodadaFrase: Frase;
   public progresso: number = 0;
 
-  constructor() {
+  public atualizaFrase(): void {
+    //modifica a frase
     this.rodadaFrase = this.frases[this.rodada]
+    // limpando as respostas
+    this.resposta = ''
+  }
+
+  constructor() {
+    this.atualizaFrase();
     console.log(this.rodadaFrase);
   }
 
@@ -25,29 +32,26 @@ export class PainelComponent implements OnInit {
   }
 
   public atualizaResposta(resposta: Event): void {
-    this.resposta = ((<HTMLInputElement>resposta.target).value);  
-    //console.log(this.resposta);
+    //captura o valor digitado
+    this.resposta = ((<HTMLInputElement>resposta.target).value);
       
-  }
+  }  
   
-  public verificarResposta(): void {
-    //console.log('Verificar resposta:', this.resposta);
-    //trocar pergunta da rodada
+  public verificarResposta(): void {      
+
     if(this.rodadaFrase.frasePtBr == this.resposta){
       alert('A tradução está correta!')
+      //trocar pergunta da rodada
       this.rodada++
-      this.progresso = this.progresso + (100 / this.frases.length)
-      
-
-      /* teste de progresso
-      console.log(this.progresso);*/
-      
-      this.rodadaFrase = this.frases[this.rodada]
+      //atalizar a barra de progresso
+      this.progresso = this.progresso + (100 / this.frases.length)  
+      //chamada da função pra mudar a frase
+      this.atualizaFrase();     
     }
     else{
       alert('Você errou !!!')
     }
-    
+            
   }
 
 }
