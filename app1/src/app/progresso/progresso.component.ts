@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PainelComponent } from '../painel/painel.component'
 @Component({
   selector: 'app-progresso',
@@ -7,7 +7,10 @@ import { PainelComponent } from '../painel/painel.component'
 })
 export class ProgressoComponent implements OnInit {
 
-  //public progresso: number = 25;
+  /*usar @ para chamar a função Input de decoração para passar parametros de classes pai para classes filhos, 
+  ex:  painel.component >>>> progresso.component da variavel 'progresso' */
+  
+  @Input() public progresso: number = 0;
   
   constructor() { }
 
