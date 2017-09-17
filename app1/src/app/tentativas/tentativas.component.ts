@@ -10,12 +10,12 @@ export class TentativasComponent implements OnInit {
   public coracaoVazio: string = '/assets/coracao_vazio.png'
   public coracaoCheio: string = '/assets/coracao_cheio.png'
   
-  public controlaCoracoes: Array< Coracao > = [
+  public coracoes: Coracao [] = [
     new Coracao(true),new Coracao(true),new Coracao(true)
   ]
 
   constructor() { 
-    console.log(this.controlaCoracoes);    
+    console.log(this.coracoes);    
   }
 
   ngOnInit() {
