@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Frase } from '../shared/frase.model'
 import { FRASES } from './frases-mock'
 
@@ -10,48 +11,55 @@ import { FRASES } from './frases-mock'
 export class PainelComponent implements OnInit {
 
   public frases: Frase[] = FRASES
-  public instrucao: string = 'Traduza a Frase:';
-  public resposta: String = '';
-  public rodada: number = 0;
-  public rodadaFrase: Frase;
-  public progresso: number = 0;
+  public instrucao: string = 'Traduza a frase:'
+  public resposta: string = ''
 
-  public atualizaFrase(): void {
-    //modifica a frase
-    this.rodadaFrase = this.frases[this.rodada]
-    // limpando as respostas
-    this.resposta = ''
+  public rodada: number = 0
+  public rodadaFrase: Frase
+
+  public progresso: number = 0
+
+  constructor() { 
+    this.atualizaRodada()
   }
 
-  constructor() {
-    this.atualizaFrase();
-    console.log(this.rodadaFrase);
-  }
-
-  ngOnInit() {    
+  ngOnInit() {
   }
 
   public atualizaResposta(resposta: Event): void {
-    //captura o valor digitado
-    this.resposta = ((<HTMLInputElement>resposta.target).value);
-      
-  }  
-  
-  public verificarResposta(): void {      
+    this.resposta = (<HTMLInputElement>resposta.target).value
+    //console.log(this.resposta)
+  }
 
-    if(this.rodadaFrase.frasePtBr == this.resposta){
-      alert('A tradução está correta!')
+  public verificarResposta(): void {
+    
+    if(this.rodadaFrase.frasePtBr == this.resposta) {
+      alert('A tradução está correta')
+
       //trocar pergunta da rodada
       this.rodada++
-      //atalizar a barra de progresso
-      this.progresso = this.progresso + (100 / this.frases.length)  
-      //chamada da função pra mudar a frase
-      this.atualizaFrase();     
+
+      //progresso
+      this.progresso = this.progresso + (100 / this.frases.length)
+      console.log(this.progresso)
+
+      //atualiza o objeto rodadaFrase 
+      this.atualizaRodada()
+
+    } else {
+      alert('A tradução está errada')
     }
-    else{
-      alert('Você errou !!!')
-    }
-            
+
+    
+  }
+
+  public atualizaRodada(): void {
+
+    //define a frase da rodada com base em alguma lógica
+    this.rodadaFrase = this.frases[this.rodada]
+
+    //limpar a resposta
+    this.resposta = ''
   }
 
 }
