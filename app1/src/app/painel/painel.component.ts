@@ -47,11 +47,12 @@ export class PainelComponent implements OnInit {
 
       //atualiza o objeto rodadaFrase 
       this.atualizaRodada()
-
-    } else {
+      
+    } else {      
       alert('A tradução está errada')
       // diminuir as tentativas
       this.tentativas--
+
       if (this.tentativas == -1){
         alert('Você perdeu todas as tentativas!!!')
       }      
