@@ -19,6 +19,8 @@ export class TentativasComponent implements OnInit {
     console.log(this.coracoes)    
   }
   
+  4:32
+  
   ngOnInit() {
     console.log('Tentativas recebidas do painel: ',this.tentativas);
   }
