@@ -33,23 +33,23 @@ export class PainelComponent implements OnInit {
   }
 
   public verificarResposta(): void {
-    console.log(this.tentativas);
     
     if(this.rodadaFrase.frasePtBr == this.resposta) {
-      alert('A tradução está correta')
 
       //trocar pergunta da rodada
       this.rodada++
 
       //progresso
       this.progresso = this.progresso + (100 / this.frases.length)
-      console.log(this.progresso)
+
+      if(this.rodada == 4){
+        alert('Você acertou todas as Frases')
+      }
 
       //atualiza o objeto rodadaFrase 
       this.atualizaRodada()
       
-    } else {      
-      alert('A tradução está errada')
+    } else {
       // diminuir as tentativas
       this.tentativas--
 
@@ -57,7 +57,7 @@ export class PainelComponent implements OnInit {
         alert('Você perdeu todas as tentativas!!!')
       }      
     }
-    console.log(this.tentativas);    
+      
   }
 
   public atualizaRodada(): void {
