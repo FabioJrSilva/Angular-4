@@ -8,31 +8,31 @@ import { FRASES } from './frases-mock'
   templateUrl: './painel.component.html',
   styleUrls: ['./painel.component.css']
 })
-export class PainelComponentmponent implements OnInit, OnDestroy {
-  
+export class PainelComponent implements OnInit, OnDestroy {
+
   public frases: Frase[] = FRASES
   public instrucao: string = 'Traduza a frase:'
   public resposta: string = ''
-  
+
   public rodada: number = 0
   public rodadaFrase: Frase
-  
+
   public progresso: number = 0
+
   public tentativas: number = 3
-  
-  
-  @Output() public encerrarJogo: EventEmitter<string> = new EventEmitter();
-  
+
+  @Output() public encerrarJogo: EventEmitter<string> = new EventEmitter()
+
   constructor() { 
     this.atualizaRodada()
   }
-  
+
   ngOnInit() {
   }
-  
-  ngOnDestroy(): void {
-    console.log("componente painel destruido");    
-  }  
+
+  ngOnDestroy() {
+    console.log('Componente painel foi destruído')
+  }
 
   public atualizaResposta(resposta: Event): void {
     this.resposta = (<HTMLInputElement>resposta.target).value
@@ -40,7 +40,6 @@ export class PainelComponentmponent implements OnInit, OnDestroy {
   }
 
   public verificarResposta(): void {
-    
     if(this.rodadaFrase.frasePtBr == this.resposta) {
 
       //trocar pergunta da rodada
@@ -49,22 +48,22 @@ export class PainelComponentmponent implements OnInit, OnDestroy {
       //progresso
       this.progresso = this.progresso + (100 / this.frases.length)
 
-      if(this.rodada == 4){
-        this.encerrarJogo.emit('Vitória!')
+      //
+      if(this.rodada === 4) {
+        this.encerrarJogo.emit('vitoria')
       }
 
       //atualiza o objeto rodadaFrase 
       this.atualizaRodada()
-      
+
     } else {
-      // diminuir as tentativas
+      //diminuir a variável tentativas
       this.tentativas--
 
-      if (this.tentativas == -1){
-        this.encerrarJogo.emit('Derrota!')
-      }      
+      if(this.tentativas === -1) {
+        this.encerrarJogo.emit('derrota')
+      }
     }
-      
   }
 
   public atualizaRodada(): void {
